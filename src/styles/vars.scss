@@ -1,0 +1,34 @@
+:root {
+  --body-bg-color: #000;
+  --main-bg-color: #171717;
+  --sec-bg-color: #252525;
+  --garient-color: linear-gradient(180deg, #FFCB52 0%, #FF7B02 100%);
+  --reversed-garient-color: linear-gradient(180deg, #FF7B02 0%, #FFCB52 100%);
+  --error-color: red;
+
+  --sidebar-width: 306px;
+  --datepicker-width: 282px;
+  --create-event-general-width: 505px;
+  --create-event-new-width: 920px;
+  --create-event-template-width: 1058px;
+}
+
+@media (max-width: 1440px) {
+  :root {
+    --create-event-new-width: 100%;
+    --create-event-template-width: 100%;
+  }
+}
+
+
+@media (max-width: 1366px) {
+  :root {
+    --sidebar-width: 280px;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 0;
+  }
+}
