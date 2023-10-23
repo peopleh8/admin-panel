@@ -435,6 +435,14 @@ canvas {
   object-fit: contain;
 }
 
+@media (max-width: 1440px) {
+  .tab-slider {
+    .swiper-slide {
+      width: 100% !important;
+    }
+  }
+}
+
 @media (max-width: 1366px) {
   .main {
     padding: 20px 15px;

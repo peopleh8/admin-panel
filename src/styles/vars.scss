@@ -15,8 +15,8 @@
 
 @media (max-width: 1440px) {
   :root {
-    --create-event-new-width: 100%;
-    --create-event-template-width: 100%;
+    --create-event-new-width: calc(100vw - 60px - var(--sidebar-width) - 57px);
+    --create-event-template-width: calc(100vw - 60px - var(--sidebar-width) - 57px);
   }
 }
 
@@ -30,5 +30,7 @@
 @media (max-width: 1024px) {
   :root {
     --sidebar-width: 0;
+    --create-event-new-width: calc(100vw - 20px - 20px);
+    --create-event-template-width: calc(100vw - 20px - 20px);
   }
 }
