@@ -6,7 +6,7 @@ const InfoEventPreview: FC = () => {
   return (
     <div className={styles.preview}>
       <Image
-        src='/assets/images/running.png'
+        src='/assets/images/info-event.png'
         width={662}
         height={362}
         loading='lazy'
