@@ -14,7 +14,10 @@ const EventsCalendar: FC = () => {
   
   const eventDragHandler = (info: any) => dispatch(eventDrag(info))
   const eventClickHandler = (info: any) => dispatch(eventClick(info))
-  const dateSelectHandler = (info: any) => dispatch(dateSelect(info))
+  const dateSelectHandler = (info: any) => {
+    console.log(1)
+    dispatch(dateSelect(info))
+  }
   const eventResizeHandler = (info: any) => dispatch(eventResize(info))
 
   return (
@@ -26,6 +29,7 @@ const EventsCalendar: FC = () => {
         initialView={'dayGridMonth'}
         eventOrder={'title'}
         eventOrderStrict={true}
+        longPressDelay={0}
         weekends={true}
         events={events}
         height={'auto'}

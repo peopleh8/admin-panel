@@ -14,7 +14,11 @@ const CreateEventNewDate: FC<any> = ({ register, errors, setValue }) => {
   const { createNewStartDate: startDate, isOpenCreateNewDatepicker: isOpen } = useTypedSelector(state => state.events)
   
   const changeDateHandler = (date: Date | null) => {
-    dispatch(changeCreateNewDate(date))
+    if (!date) {
+      return
+    }
+    
+    dispatch(changeCreateNewDate(date.toISOString()))
   }
 
   const openDatepickerHandler = () => {
@@ -26,7 +30,7 @@ const CreateEventNewDate: FC<any> = ({ register, errors, setValue }) => {
   })
 
   useEffect(() => {
-    setValue('date', `${startDate.getDate()} ${startDate.toLocaleString('en-GB', { month: 'long' })}`)
+    setValue('date', `${new Date(startDate).getDate()} ${new Date(startDate).toLocaleString('en-GB', { month: 'long' })}`)
   }, [startDate])
   
   return (
@@ -60,7 +64,7 @@ const CreateEventNewDate: FC<any> = ({ register, errors, setValue }) => {
         ref={datePickerRef}
       >
         <DatePicker
-          selected={startDate}
+          selected={new Date(startDate)}
           changeDate={changeDateHandler}
         />
       </div>

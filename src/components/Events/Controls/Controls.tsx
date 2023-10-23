@@ -18,14 +18,18 @@ const Controls: FC = () => {
   }
 
   const changeDateHandler = (date: Date | null) => {
-    dispatch(changeDate(date))
+    if (!date) {
+      return
+    }
+    
+    dispatch(changeDate(date.toISOString()))
   }
 
-  useEffect(() => {
-    const date = startDate?.toLocaleDateString('en-GB').split('/').reverse().join('-')
+  // useEffect(() => {
+  //   const date = startDate?.toLocaleDateString('en-GB').split('/').reverse().join('-')
     
-    console.log(date)
-  }, [startDate])
+  //   console.log(date)
+  // }, [startDate])
   
   return (
     <div className={styles.controls}>
@@ -39,7 +43,7 @@ const Controls: FC = () => {
         onClick={createEventHandler}
       />
       <DatePicker
-        selected={startDate}
+        selected={new Date(startDate)}
         changeDate={changeDateHandler}
       />
     </div>

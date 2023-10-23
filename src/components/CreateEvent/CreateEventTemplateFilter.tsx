@@ -17,7 +17,11 @@ const CreateEventTemplateFilter: FC = () => {
   })
 
   const changeDateHandler = (date: Date | null) => {
-    dispatch(changeCreateTemplateDate(date))
+    if (!date) {
+      return
+    }
+    
+    dispatch(changeCreateTemplateDate(date.toISOString()))
   }
 
   const openDatepickerHandler = () => {
@@ -45,7 +49,7 @@ const CreateEventTemplateFilter: FC = () => {
         ref={datePickerRef}
       >
         <DatePicker
-          selected={startDate}
+          selected={new Date(startDate)}
           changeDate={changeDateHandler}
         />
       </div>
