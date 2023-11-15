@@ -1,14 +1,13 @@
 import { FC } from 'react'
-import SimpleBar from 'simplebar-react'
+import dynamic from 'next/dynamic'
+const ScrollView = dynamic(() => import('@/layout/ScrollView'), { ssr: false })
 import TopEventsItem from '@/components/Analytics/TopEvents/TopEventsItem'
 import styles from '@/components/Analytics/TopEvents/TopEvents.module.scss'
-import 'simplebar-react/dist/simplebar.min.css'
 
 const TopEventsBody: FC = () => {
   return (
-    <SimpleBar
-      className={styles.body}
-      autoHide={false}
+    <ScrollView
+      classNames={[ styles.body ]}
     >
       <TopEventsItem />
       <TopEventsItem />
@@ -23,7 +22,7 @@ const TopEventsBody: FC = () => {
       <TopEventsItem />
       <TopEventsItem />
       <TopEventsItem />
-    </SimpleBar>
+    </ScrollView>
   )
 }
 

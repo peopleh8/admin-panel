@@ -47,6 +47,7 @@
 
 .body {
   height: calc(100% - 55px - 17px - 22px);
+  overflow: auto;
 }
 
 .item {

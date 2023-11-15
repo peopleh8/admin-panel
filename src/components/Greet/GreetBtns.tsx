@@ -5,6 +5,7 @@ import { ButtonSizes, ButtonTypes } from '@/types/commonTypes'
 import { useTypedDispatch } from '@/hooks/useTypedDispatch'
 import { setOpenGreet } from '@/store/reducers/profileReducer'
 import { openCreateNewEventAsync } from '@/store/actions/openCreateNewEventAsync'
+import { PAGE_ROUTES } from '@/constants/pageRoutes'
 import styles from '@/components/Greet/Greet.module.scss'
 
 const GreetBtns: FC = () => {
@@ -12,7 +13,7 @@ const GreetBtns: FC = () => {
   const router = useRouter()
 
   const redirectToProfileHandler = () => {
-    router.push('/profile/').then(() => dispatch(setOpenGreet(false)))
+    router.push(PAGE_ROUTES.profile.route).then(() => dispatch(setOpenGreet(false)))
   }
 
   const openCreateNewEventHandler = () => {

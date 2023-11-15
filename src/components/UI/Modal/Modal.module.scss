@@ -8,7 +8,7 @@
   align-items: flex-start;
   left: 0;
   top: 0;
-  padding: 80px 80px 80px calc(var(--sidebar-width) + 50px);
+  padding: var(--modal-pad-top) var(--modal-pad-right) var(--modal-pad-bot) calc(var(--sidebar-width) + var(--modal-pad-left));
   overflow: auto;
   background: rgba(0, 0, 0, 0.80);
   backdrop-filter: blur(2px);
@@ -79,12 +79,6 @@
         background: #fff;
       }
     }
-  }
-}
-
-@media (max-width: 1440px) {
-  .modal {
-    padding: 60px 60px 60px calc(var(--sidebar-width) + 40px);
   }
 }
 

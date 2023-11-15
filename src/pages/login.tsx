@@ -9,6 +9,7 @@ import SectionTitle from '@/components/UI/SectionTitle/SectionTitle'
 import Button from '@/components/UI/Button/Button'
 import { setAuth, setOpenGreet } from '@/store/reducers/profileReducer'
 import styles from '@/styles/Login.module.scss'
+import { PAGE_ROUTES } from '@/constants/pageRoutes'
 
 const Login: FC = () => {
   const dispatch = useTypedDispatch()
@@ -22,7 +23,7 @@ const Login: FC = () => {
   } = useForm<FormValues>()
 
   const submitHandler: SubmitHandler<FormValues> = data => {
-    router.push('/').then(() => {
+    router.push(PAGE_ROUTES.dashboard.route).then(() => {
       dispatch(setAuth(true))
       dispatch(setOpenGreet(true))
     })

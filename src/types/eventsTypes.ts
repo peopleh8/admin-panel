@@ -6,3 +6,7 @@ export interface EventBtnsProps {
 export interface EventBtnProps {
   [key: string]: any
 }
+
+export interface CreateEventNewFormProps {
+  isEditable: boolean
+}

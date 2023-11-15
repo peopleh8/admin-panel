@@ -3,15 +3,16 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import styles from '@/components/Menu/Menu.module.scss'
+import { PAGE_ROUTES } from '@/constants/pageRoutes'
 
 const ProfileItem: FC = () => {
   const router = useRouter()
-
+  
   return (
     <div className={styles.profile}>
       <Link 
-        className={`${styles.profileLink} ${router.pathname === '/profile' ? styles.profileActive : ''}`} 
-        href='/profile/'
+        className={`${styles.profileLink} ${router.pathname === PAGE_ROUTES.profile.route ? styles.profileActive : ''}`} 
+        href={PAGE_ROUTES.profile.route}
       >
         <div className={`${styles.profilePhoto} icon`}>
           <Image

@@ -5,6 +5,7 @@ import { formatDate } from '@/utils/formatDate'
 const eventsReducer = createSlice({
   name: 'events',
   initialState: {
+    isEditable: false,
     isCreateEventModalOpen: false,
     isCreateEventNewModalOpen: false,
     isCreateEventTemplateModalOpen: false,
@@ -62,6 +63,9 @@ const eventsReducer = createSlice({
     },
     setInfoModalOpen(state, action) {
       state.isInfoModalOpen = action.payload
+    },
+    setEditable(state, action) {
+      state.isEditable = action.payload
     },
     changeDate(state, action) {
       state.startDate = action.payload
@@ -125,6 +129,7 @@ export const {
   setCreateEventNewModal, 
   setCreateEventTemplateModal,
   setInfoModalOpen,
+  setEditable,
   changeDate, 
   changeCreateNewDate,
   changeCreateTemplateDate,

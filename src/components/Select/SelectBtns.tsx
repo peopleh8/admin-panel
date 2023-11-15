@@ -1,14 +1,9 @@
 import { FC } from 'react'
 import Button from '@/components/UI/Button/Button'
-import { ButtonSizes, ButtonTypes } from '@/types/commonTypes'
-import styles from '@/components/Logout/Logout.module.scss'
+import { ButtonSizes, ButtonTypes, SelectModalBtnsProps } from '@/types/commonTypes'
+import styles from '@/components/Select/Select.module.scss'
 
-interface LogoutGeneralProps {
-  positiveHandle: () => void
-  negativeHandle: () => void
-}
-
-const LogoutBtns: FC<LogoutGeneralProps> = ({ positiveHandle, negativeHandle }) => {
+const SelectBtns: FC<SelectModalBtnsProps> = ({ positiveHandle, negativeHandle }) => {
   return (
     <div className={styles.btns}>
       <Button
@@ -16,18 +11,16 @@ const LogoutBtns: FC<LogoutGeneralProps> = ({ positiveHandle, negativeHandle }) 
         size={ButtonSizes.LG}
         colored
         type={ButtonTypes.Button}
-        id='logout-positive'
         onClick={positiveHandle}
       />
       <Button
         text='No'
         size={ButtonSizes.LG}
         type={ButtonTypes.Button}
-        id='logout-negative'
         onClick={negativeHandle}
       />
     </div>
   )
 }
 
-export default LogoutBtns
+export default SelectBtns

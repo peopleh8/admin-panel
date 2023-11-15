@@ -8,6 +8,7 @@
   position: relative;
   overflow: hidden;
   z-index: 2;
+  background: #686868 !important;
   &::before {
     content: "";
     position: absolute;
@@ -23,7 +24,7 @@
     &::before {
       transition: opacity .2s ease;
     }
-    &:hover::before {
+    &:not(.btnError):hover::before {
       opacity: 1;
     }
   }
@@ -31,7 +32,7 @@
     &::before {
       transition: opacity .1s ease;
     }
-    &:active::before {
+    &:not(.btnError):active::before {
       opacity: 1;
     }
   }
@@ -51,8 +52,20 @@
   background: var(--garient-color) !important;
 }
 
-.btnUncolored {
-  background: #686868 !important;
+.btnError {
+  background: var(--error-color) !important;
+  @media (hover: hover) {
+    transition: background .2s ease;
+    &:hover {
+      background: darken(#E91515, 5%) !important;
+    }
+  }
+  @media (hover: hover) {
+    transition: background .1s ease;
+    &:active {
+      background: darken(#E91515, 5%) !important;
+    }
+  }
 }
 
 .btnLg {

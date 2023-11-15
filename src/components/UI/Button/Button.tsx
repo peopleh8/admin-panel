@@ -3,11 +3,11 @@ import Image from 'next/image'
 import { ButtonProps, ButtonSizes } from '@/types/commonTypes'
 import styles from '@/components/UI/Button/Button.module.scss'
 
-const Button: FC<ButtonProps> = ({ icon, text, size, colored, ...props }) => {
+const Button: FC<ButtonProps> = ({ icon, text, size, colored, error, ...props }) => {
   return (
     <button 
       className={
-        `${styles.btn} ${size === ButtonSizes.LG ? styles.btnLg : size === ButtonSizes.MD ? styles.btnMd : styles.btnSm} ${colored ? styles.btnColored : styles.btnUncolored}`
+        `${styles.btn} ${size === ButtonSizes.LG ? styles.btnLg : size === ButtonSizes.MD ? styles.btnMd : styles.btnSm} ${colored ? styles.btnColored : ''} ${error ? styles.btnError : ''}`
       }
       {...props}
     >

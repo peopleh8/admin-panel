@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect, useRef } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import Form from '@/components/UI/Form/Form'
 import Input from '@/components/UI/Field/Input'
@@ -9,9 +9,12 @@ import Time from '@/components/CreateEvent/CreateEventNewTime'
 import Images from '@/components/CreateEvent/CreateEventNewImages'
 import Button from '../UI/Button/Button'
 import { ButtonSizes, ButtonTypes, FormValues } from '@/types/commonTypes'
+import { CreateEventNewFormProps } from '@/types/eventsTypes'
 import styles from '@/components/CreateEvent/CreateEvent.module.scss'
 
-const CreateEventNewForm: FC = () => {
+const CreateEventNewForm: FC<CreateEventNewFormProps> = ({ isEditable }) => {
+  const prevEventsState = useRef<boolean | null>(null)
+  
   const { 
     register, 
     handleSubmit,
@@ -28,6 +31,15 @@ const CreateEventNewForm: FC = () => {
 
     console.log(data)
   }
+
+  useEffect(() => {
+    if (prevEventsState.current !== isEditable) {
+      clearErrors()
+      reset()
+    }
+
+    prevEventsState.current = isEditable
+  }, [isEditable])
   
   return (
     <Form 
@@ -82,13 +94,22 @@ const CreateEventNewForm: FC = () => {
           />
         </div>
       </div>
-      <Button
-        text='Confirm'
-        colored
-        size={ButtonSizes.LG}
-        type={ButtonTypes.Submit}
-        id='upload-submit'
-      />
+      <div className={styles.createNewBtns}>
+        <Button
+          text='Confirm'
+          colored
+          size={ButtonSizes.LG}
+          type={ButtonTypes.Submit}
+        />
+        { isEditable && (
+          <Button
+            text='Delete'
+            error
+            size={ButtonSizes.LG}
+            type={ButtonTypes.Button}
+          />
+        ) }
+      </div>
     </Form>
   )
 }

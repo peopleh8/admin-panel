@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { MenuItemProps } from '@/types/menuTypes'
+import { ButtonTypes } from '@/types/commonTypes'
 import styles from '@/components/Menu/Menu.module.scss'
 
 const MenuItem: FC<MenuItemProps> = ({ link, name, icon, handleClick }) => {
@@ -35,7 +36,7 @@ const MenuItem: FC<MenuItemProps> = ({ link, name, icon, handleClick }) => {
           ) : (
             <button 
               className={styles.link} 
-              type='button'
+              type={ButtonTypes.Button}
               onClick={handleClick}
             >
               <span className={`${styles.icon} icon`}>

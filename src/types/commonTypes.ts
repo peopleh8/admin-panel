@@ -7,6 +7,17 @@ export interface MetaProps {
   desc?: string
 }
 
+export enum ScrollViewOffset {
+  Top = 'Top',
+  Bot = 'Bot'
+}
+
+export interface ScrollViewProps {
+  classNames: string[]
+  offset?: ScrollViewOffset
+  children: ChildrenType
+}
+
 export enum ButtonTypes {
   Button = 'button',
   Submit = 'submit',
@@ -37,6 +48,12 @@ export enum Days {
 export enum InputMasks {
   Time = '99:99',
   Date = '99-99-999'
+}
+
+export enum ScreenBreakpoints {
+  Laptop = 1366,
+  Tablet = 1024,
+  Mobile = 480
 }
 
 export type IdType = {
@@ -107,4 +124,19 @@ export type FormValues = {
 export interface DatePickerProps {
   selected: Date
   changeDate: (date: Date) => void
+}
+
+export interface SelectModalProps {
+  title: string
+  positiveHandle: () => void
+  negativeHandle: () => void
+}
+
+export interface SelectModalBtnsProps {
+  positiveHandle: () => void
+  negativeHandle: () => void
+}
+
+export interface SuccessModalProps {
+  title: string
 }
