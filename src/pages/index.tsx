@@ -11,12 +11,13 @@ import { setInfo } from '@/store/reducers/profileReducer'
 import { useTypedDispatch } from '@/hooks/useTypedDispatch'
 import styles from '@/styles/Dashboard.module.scss'
 
-const Dashboard: FC = ({ user }: any) => {
+const Dashboard: FC = ({ user, qwq, ewq }: any) => {
   const dispatch = useTypedDispatch()
 
-  console.log(user)
 
   useEffect(() => {
+    console.log(user, qwq, ewq)
+    
     dispatch(setInfo(user))
   }, [])
 
@@ -47,10 +48,12 @@ export const getServerSideProps: GetServerSideProps = async (context: GetServerS
   const [ userData ] = await Promise.all([
     authorizedAxios.get(`/user/${userId}`)
   ])
-  
+
   return {
     props: {
       user: userData.data.user[0],
+      qwq: csrfToken,
+      ewq: sessionId
     },
   }
 }
