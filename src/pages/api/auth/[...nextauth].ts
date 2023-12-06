@@ -1,14 +1,7 @@
 import NextAuth, { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-// import { FirestoreAdapter } from '@next-auth/firebase-adapter'
-// import firebase from 'firebase/app'
-// import 'firebase/firestore'
 import { unAuthorizedAxios } from '@/config/axios'
 import { PAGE_ROUTES } from '@/constants/pageRoutes'
-
-// const firestore1 = (
-//   firebase.initializeApp()
-// ).firestore()
 
 const authOptions: NextAuthOptions = {
   session: {
@@ -27,6 +20,9 @@ const authOptions: NextAuthOptions = {
 
       return token
     },
+    async redirect({ baseUrl }) {
+      return baseUrl
+    }
   },
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
